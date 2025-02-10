@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../search_navigation_controller.dart';
 
-const _iconSize = 20.0;
+const _iconSize = 16.0;
 
 class SearchNavigationWidget extends StatelessWidget {
   final SearchNavigationController searchNavigationController;
@@ -19,6 +19,7 @@ class SearchNavigationWidget extends StatelessWidget {
       builder: (context, child) {
         return Row(
           mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
           children: [
             if (searchNavigationController.value.totalMatchCount > 0) ...[
               InkWell(
@@ -38,9 +39,12 @@ class SearchNavigationWidget extends StatelessWidget {
                 ),
               ),
             ],
-            const SizedBox(width: 10),
+            const SizedBox(width: 5),
             Expanded(
-              child: Text(_getText()),
+              child: Text(
+                _getText(),
+                style: const TextStyle(fontSize: 12),
+              ),
             ),
           ],
         );

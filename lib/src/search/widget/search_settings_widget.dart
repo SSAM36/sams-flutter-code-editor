@@ -20,20 +20,18 @@ class SearchSettingsWidget extends StatelessWidget {
       animation: settingsController,
       builder: (context, child) {
         return Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 6,
+                  vertical: 4,
+                ),
                 child: SizedBox(
-                  width: 100,
+                  width: 80,
                   child: TextField(
-                    // We need to set this in order to catch
-                    // LogicalKeyBoardKey.enter pressed event.
-                    // Otherwise we would need to catch it in `onSubmitted`.
-                    // The problem with onSubmitted is that
-                    // when we receive the event and immediately focus on the
-                    // codefield, the flutter also fires the KeyEvent
-                    // with EnterKey on the codefield.
+                    style: const TextStyle(fontSize: 13),
                     maxLines: null,
                     decoration: const InputDecoration(
                       hintText: _hintText,
@@ -48,8 +46,6 @@ class SearchSettingsWidget extends StatelessWidget {
             ),
             ToggleButtons(
               onPressed: (index) {
-                // TODO(yescorp): Use keyed_collection_widgets when this lands:
-                //  https://github.com/alexeyinkin/flutter-keyed-collection-widgets/issues/2
                 patternFocusNode.requestFocus();
                 switch (index) {
                   case 0:

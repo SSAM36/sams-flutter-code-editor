@@ -577,11 +577,7 @@ class _CodeFieldState extends State<CodeField> {
     return OverlayEntry(
       builder: (context) {
         return Positioned(
-<<<<<<< HEAD
           top: 100,
-=======
-          top: 40,
->>>>>>> c4fd40accfa97def5913e428655ff4de50e5ea6f
           right: 10,
           child: Container(
             clipBehavior: Clip.antiAlias,
